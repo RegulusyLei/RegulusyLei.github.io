@@ -266,6 +266,7 @@ object {
 	font-family: Oswald, "华文中宋", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	line-height: 1em;
+	background: url(./images/loading.gif) center no-repeat;
 	}
 .site-title a {
 	color: #333;
@@ -1288,10 +1289,10 @@ ul.widget-tab-nav {
 		width: auto;
 		min-width: 100%;
 		display: block;
-	    transform: translate(-50%,-50%);
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
+	  transform: translate(-50%,-50%);
+	  position: absolute;
+	  top: -50%;
+	  left: -50%;
 		}
 	.content-area {
 		float: none;
