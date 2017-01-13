@@ -253,12 +253,12 @@ object {
 ----------------------------------------------- */
 .site-header {
 	padding: 40px 0 20px;
-	background-color: #F2F2F2;
+	// background-color: #F2F2F2;
 	}
 .site-branding {
 	float: left;
 	width: 100%;
-	background: url(./images/bg.jpg) center no-repeat;
+	background: url(./images/bg.png) center no-repeat;
 	}
 .site-title {
 	margin: 0;
