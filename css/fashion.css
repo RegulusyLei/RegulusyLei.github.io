@@ -413,6 +413,7 @@ object {
 
 #main-navigation {
 	border: solid #333;
+	border-top: 0px;
 	border-width: 1px 0 3px;
 	}
 #main-navigation li a {
