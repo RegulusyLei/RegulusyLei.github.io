@@ -51,17 +51,39 @@
 
 
   
+  
+  <div class="site-header-image">
+    <img id="originBg" width="100%" alt="Hike News" src="">
+  </div>
+
+  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
+    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
+  </div>
+
+  <script>
+        var imgUrls = "css/images/pose02.jpg,http://t.cn/RMbvEza".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("originBg").src=imgUrls[random];
+          document.getElementById("blurBg").src=imgUrls[random];
+        } else {
+          document.getElementById("originBg").src='/' + imgUrls[random];
+          document.getElementById("blurBg").src='/' + imgUrls[random];
+        }
+    </script>
+
+
 
 
 <header id="allheader" class="site-header" role="banner" 
-   >
+   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
   <div class="clearfix container">
       <div class="site-branding">
 
           <h1 class="site-title">
             
               <a href="/" rel="home" >
-                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="https://avatars1.githubusercontent.com/u/23145285?v=3&s=460">
+                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="http://ww1.sinaimg.cn/mw690/60e785d9gw1fbrivsh7cjg208n092aoy.gif">
               </a>
             
           </h1>
@@ -100,6 +122,84 @@
       <div id="content" class="outer">
         
           <section id="main">
+  
+    <article id="post-React"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/15/React/">React介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/15/React/" class="article-date">
+	  <time datetime="2017-01-15T01:22:42.000Z" itemprop="datePublished">一月 15, 2017</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简单来说-React是一个Javascript库"><a href="#简单来说-React是一个Javascript库" class="headerlink" title="简单来说, React是一个Javascript库."></a>简单来说, React是一个Javascript库.</h2><pre><code>++ 使用React制作的网站案例
+    -- info.smartstudy.com
+</code></pre><h2 id="React四个概念"><a href="#React四个概念" class="headerlink" title="React四个概念"></a>React四个概念</h2><pre><code>++ Virtual DOM
+    -- 用来转换跨平台
+    -- 可以让页面渲染速度提升(Diff算法)
+++ React组件化
+    -- 不同于从业务角度的模块化开发, 组件化开发是从UI角度出发
+        --- 组件的四个特性
+            1. 自定义标签: 可以定义Html中不存在的标签
+            2. 高内聚的资源: 所有的资源写在同一个文件
+            3. 独立的作用域: 使用ES6, Class具有独立作用域
+            4. 规范化接口: 固定的规范接口, 不可更改
+    -- 组件化的开发特性
+        1. 可组合
+        2. 可重用
+        3. 可维护
+        4. 可测试
+++ Jsx语法
+    -- 实质就是一个语法糖, 可以让组件结构看上去更清晰
+    -- 允许html和js混写
+    -- 解析规则: 碰到尖括号 &apos;&lt;&apos; 就按html语法解析; 碰到大括号 &apos;{&apos; 就按javascript语法解析
+++ Data Flow(单项数据流)
+    -- 传统的MVC
+    -- Flux
+    -- Redux(Vue就是抄袭的这货, 较难)
+</code></pre><h2 id="React快速开始"><a href="#React快速开始" class="headerlink" title="React快速开始"></a>React快速开始</h2><pre><code>++ 创建项目文件夹
+    -- npm init //初始化npm配置文件
+++ 依赖环境
+    -- npm install --save webpack
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-测试tag"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
@@ -248,6 +348,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2017/01/15/React/">React介绍</a></h6>
+              <span>一月 15, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2017/01/13/测试tag/">测试tag</a></h6>
               <span>一月 13, 2017</span>
             </div>
@@ -318,7 +430,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -329,13 +441,20 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
   
 </aside>
