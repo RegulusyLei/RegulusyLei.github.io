@@ -123,6 +123,177 @@
         
           <section id="main">
   
+    <article id="post-webpack的使用-二"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/15/webpack的使用-二/">webpack的使用(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/15/webpack的使用-二/" class="article-date">
+	  <time datetime="2017-01-15T12:38:44.000Z" itemprop="datePublished">一月 15, 2017</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="加载器简介"><a href="#加载器简介" class="headerlink" title="加载器简介"></a>加载器简介</h2><pre><code>webpack准备的一些预处理工具
+</code></pre><h2 id="加载器"><a href="#加载器" class="headerlink" title="加载器"></a>加载器</h2><pre><code>1. babel-loader
+    ++ 用来编译jsx和ES6到原生js
+        -- jsx语法: 允许html和js混写
+    ++ 安装
+        npm install babel-loader --save-dev
+        npm install babel-core babel-preset-es2015 babel-preset-react --save-dev
+    ++ 修改配置
+        -- 与入口和出口同级
+        -- module: {
+            loaders: [
+                //用来处理jsx和es6语法
+                {
+                    test: /\.jsx?$/,
+                    loader: &apos;babel&apos;,
+                    query: {
+                        presets: [&apos;es2015&apos;, &apos;react&apos;]
+                    }
+                }
+            ]
+        }
+    ++ 启动运行
+2. css-loader
+    ++ 运行在js中引用css文件
+    ++ 安装
+        npm install css-loader style-loader --save-dev
+    ++ 修改配置
+        -- 与上边一样,继续添加进loaders数组
+        //处理css引用
+        {
+            test: /\.css$/,
+            loader: &apos;style!css&apos; //注意,多个加载器用感叹号连接,执行顺序是从右往左
+        }
+    ++ 启动运行
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-webpack的使用"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/15/webpack的使用/">webpack的使用(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/15/webpack的使用/" class="article-date">
+	  <time datetime="2017-01-15T11:50:07.000Z" itemprop="datePublished">一月 15, 2017</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="webpack介绍"><a href="#webpack介绍" class="headerlink" title="webpack介绍"></a>webpack介绍</h2><pre><code>webpack类似gulp
+</code></pre><h2 id="使用webpack的框架"><a href="#使用webpack的框架" class="headerlink" title="使用webpack的框架"></a>使用webpack的框架</h2><pre><code>react
+vue
+angular 2
+</code></pre><h2 id="web快速开始"><a href="#web快速开始" class="headerlink" title="web快速开始"></a>web快速开始</h2><pre><code>1. 创建项目目录
+    dist目录
+    src目录
+    开发配置: webpack.develop.config.js
+    发布配置: webpack.publish.config.js
+2. 安装全局和本地
+3. 修改配置文件
+    var path = require(&apos;path&apos;);
+    module.export = {
+        //入口
+        entry: path.resolve(_dirname,&apos;src/js/app.js&apos;),
+        //出口
+        output: {
+            path: path.resolve(_dirname,&apos;dist&apos;),
+            filename: &apos;bundle.js&apos;, //重命名
+        },
+    }
+4. 启动
+    webpack --config webpack.develop.config.js
+</code></pre><h2 id="快速改造"><a href="#快速改造" class="headerlink" title="快速改造"></a>快速改造</h2><pre><code>1. 命令太多太繁琐,每一步都要写命令.所以要快速改造一下配置文件,即:将命令配置到package.json文件中
+    ++ 配置: &apos;develop&apos;: &apos;webpack --config webpack.develop.config.js&apos;
+    ++ 运行: npm run develop
+2. 自动监控,自动构建
+    ++ 工具: webpack-dev-server(第三方插件)
+    ++ 配置: 
+        webpack-dev-server --config webpack.develop.config.js --devtool eval --progress --colors --hot --content-base src
+            1. webpack-dev-server: 封装了webpack命令
+            2. --content-base src: 以src为根目录,启动一个服务器
+3. 浏览器自动刷新
+    ++ 配置: 
+        //入口
+        //新添加两行配置,还是依赖webpack-dev-server
+        &apos;webpack/hot/dev-server&apos;,
+        &apos;webpack-dev-server/client?http://localhost:8080&apos;,
+        entry: path.resolve(_dirname,&apos;src/js/app.js&apos;),
+</code></pre><h2 id="Tips-dist文件夹删除后-依旧能运行-这是因为webpack帮忙构建的js在内存中"><a href="#Tips-dist文件夹删除后-依旧能运行-这是因为webpack帮忙构建的js在内存中" class="headerlink" title="Tips: dist文件夹删除后,依旧能运行,这是因为webpack帮忙构建的js在内存中"></a>Tips: dist文件夹删除后,依旧能运行,这是因为webpack帮忙构建的js在内存中</h2>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-React"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -348,6 +519,30 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2017/01/15/webpack的使用-二/">webpack的使用(二)</a></h6>
+              <span>一月 15, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/01/15/webpack的使用/">webpack的使用(一)</a></h6>
+              <span>一月 15, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2017/01/15/React/">React介绍</a></h6>
               <span>一月 15, 2017</span>
             </div>
@@ -430,7 +625,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -441,7 +636,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -451,7 +646,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
