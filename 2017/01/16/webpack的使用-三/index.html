@@ -11,22 +11,40 @@
   
   
   
-  <meta name="description" content="webpack发布文件配置类似开发文件的配置
-运行 npm run publish 即可
-与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中.">
+  <meta name="description" content="webpack发布文件配置++ 类似开发文件的配置
+++ 运行 npm run publish 即可
+++ 与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中, 包括css也都打包在这个文件中.
+分离第三方包++ 使用 clean-webpack-plugins 插件
+++ 配置
+    // 入口配置重写成对象的形式
+
+    // 配置插件内容
+    plug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack的使用(三)">
 <meta property="og:url" content="http://yoursite.com/2017/01/16/webpack的使用-三/index.html">
 <meta property="og:site_name" content="Lei'essay">
-<meta property="og:description" content="webpack发布文件配置类似开发文件的配置
-运行 npm run publish 即可
-与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中.">
-<meta property="og:updated_time" content="2017-01-16T05:27:53.694Z">
+<meta property="og:description" content="webpack发布文件配置++ 类似开发文件的配置
+++ 运行 npm run publish 即可
+++ 与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中, 包括css也都打包在这个文件中.
+分离第三方包++ 使用 clean-webpack-plugins 插件
+++ 配置
+    // 入口配置重写成对象的形式
+
+    // 配置插件内容
+    plug">
+<meta property="og:updated_time" content="2017-01-16T12:02:33.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack的使用(三)">
-<meta name="twitter:description" content="webpack发布文件配置类似开发文件的配置
-运行 npm run publish 即可
-与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中.">
+<meta name="twitter:description" content="webpack发布文件配置++ 类似开发文件的配置
+++ 运行 npm run publish 即可
+++ 与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中, 包括css也都打包在这个文件中.
+分离第三方包++ 使用 clean-webpack-plugins 插件
+++ 配置
+    // 入口配置重写成对象的形式
+
+    // 配置插件内容
+    plug">
   
     <link rel="alternate" href="/atom.xml" title="Lei&#39;essay" type="application/atom+xml">
   
@@ -160,9 +178,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="webpack发布文件配置"><a href="#webpack发布文件配置" class="headerlink" title="webpack发布文件配置"></a>webpack发布文件配置</h2><pre><code>类似开发文件的配置
-运行 npm run publish 即可
-与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中.
+        <h2 id="webpack发布文件配置"><a href="#webpack发布文件配置" class="headerlink" title="webpack发布文件配置"></a>webpack发布文件配置</h2><pre><code>++ 类似开发文件的配置
+++ 运行 npm run publish 即可
+++ 与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中, 包括css也都打包在这个文件中.
+</code></pre><h2 id="分离第三方包"><a href="#分离第三方包" class="headerlink" title="分离第三方包"></a>分离第三方包</h2><pre><code>++ 使用 clean-webpack-plugins 插件
+++ 配置
+    // 入口配置重写成对象的形式
+
+    // 配置插件内容
+    plugins: [
+        new webpack.optimize
+    ]
+</code></pre><h2 id="定义生产环境"><a href="#定义生产环境" class="headerlink" title="定义生产环境"></a>定义生产环境</h2><pre><code>++ web
+</code></pre><h2 id="自动打开浏览器插件"><a href="#自动打开浏览器插件" class="headerlink" title="自动打开浏览器插件"></a>自动打开浏览器插件</h2><pre><code>++ openbrowserplugins
 </code></pre>
       
     </div>
@@ -208,6 +236,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/01/16/webpack的使用-四/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          webpack的使用(四)
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/01/15/webpack的使用-二/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
@@ -225,7 +262,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack发布文件配置"><span class="nav-number">1.</span> <span class="nav-text">webpack发布文件配置</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack发布文件配置"><span class="nav-number">1.</span> <span class="nav-text">webpack发布文件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分离第三方包"><span class="nav-number">2.</span> <span class="nav-text">分离第三方包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义生产环境"><span class="nav-number">3.</span> <span class="nav-text">定义生产环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动打开浏览器插件"><span class="nav-number">4.</span> <span class="nav-text">自动打开浏览器插件</span></a></li></ol>
     
     </div>
   </aside>
