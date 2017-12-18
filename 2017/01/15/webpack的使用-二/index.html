@@ -29,7 +29,7 @@
     ++ 安装
         npm install babel-loader --save-dev
         npm install babel-core babel-preset-es2015">
-<meta property="og:updated_time" content="2017-01-15T13:01:37.221Z">
+<meta property="og:updated_time" content="2017-01-16T05:23:07.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack的使用(二)">
 <meta name="twitter:description" content="加载器简介webpack准备的一些预处理工具
@@ -193,6 +193,7 @@
                 }
             ]
         }
+        * query 是babel的插件, 上边已安装
     ++ 启动运行
 2. css-loader
     ++ 运行在js中引用css文件
@@ -205,6 +206,31 @@
             test: /\.css$/,
             loader: &apos;style!css&apos; //注意,多个加载器用感叹号连接,执行顺序是从右往左
         }
+    ++ 启动运行
+3. sass-loader
+    ++ 用来编译sass文件
+    ++ 安装
+        npm install sass-loader --save-dev
+    ++ 修改配置
+        同上
+        {
+            test: /\.sass$/,
+            loader: &apos;style!css!sass&apos;
+        }
+    ++ 启动运行
+4. url-loader
+    ++ 用来处理图片的加载器
+    ++ 安装
+        npm install url-loader file-loader --save-dev
+        * file-loader 已被url-loader内置
+    ++ 修改配置
+        同上
+        {
+            test: /\.(png|jpg|jpeg|gif)$/,
+            loader: &apos;url?limit=25000&apos;
+        }
+        * limit的作用: 如果图片大于给定的值, 图片就是指定的路径; 否则, 图片就转化成base64字符串.
+        可以减少网络请求
     ++ 启动运行
 </code></pre>
       
@@ -250,6 +276,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/01/16/webpack的使用-三/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          webpack的使用(三)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/01/15/webpack的使用/" id="article-nav-older" class="article-nav-link-wrap">

@@ -123,6 +123,58 @@
         
           <section id="main">
   
+    <article id="post-webpack的使用-三"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/16/webpack的使用-三/">webpack的使用(三)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/16/webpack的使用-三/" class="article-date">
+	  <time datetime="2017-01-16T05:23:42.000Z" itemprop="datePublished">一月 16, 2017</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="webpack发布文件配置"><a href="#webpack发布文件配置" class="headerlink" title="webpack发布文件配置"></a>webpack发布文件配置</h2><pre><code>类似开发文件的配置
+运行 npm run publish 即可
+与开发不同的是, 构建的内容不再存在于内存中, 而是保存在 bundle.js 中.
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-webpack的使用-二"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -171,6 +223,7 @@
                 }
             ]
         }
+        * query 是babel的插件, 上边已安装
     ++ 启动运行
 2. css-loader
     ++ 运行在js中引用css文件
@@ -183,6 +236,31 @@
             test: /\.css$/,
             loader: &apos;style!css&apos; //注意,多个加载器用感叹号连接,执行顺序是从右往左
         }
+    ++ 启动运行
+3. sass-loader
+    ++ 用来编译sass文件
+    ++ 安装
+        npm install sass-loader --save-dev
+    ++ 修改配置
+        同上
+        {
+            test: /\.sass$/,
+            loader: &apos;style!css!sass&apos;
+        }
+    ++ 启动运行
+4. url-loader
+    ++ 用来处理图片的加载器
+    ++ 安装
+        npm install url-loader file-loader --save-dev
+        * file-loader 已被url-loader内置
+    ++ 修改配置
+        同上
+        {
+            test: /\.(png|jpg|jpeg|gif)$/,
+            loader: &apos;url?limit=25000&apos;
+        }
+        * limit的作用: 如果图片大于给定的值, 图片就是指定的路径; 否则, 图片就转化成base64字符串.
+        可以减少网络请求
     ++ 启动运行
 </code></pre>
       
@@ -519,6 +597,18 @@ angular 2
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2017/01/16/webpack的使用-三/">webpack的使用(三)</a></h6>
+              <span>一月 16, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2017/01/15/webpack的使用-二/">webpack的使用(二)</a></h6>
               <span>一月 15, 2017</span>
             </div>
@@ -625,7 +715,7 @@ angular 2
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -636,7 +726,7 @@ angular 2
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -646,7 +736,7 @@ angular 2
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
